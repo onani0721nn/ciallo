@@ -1,0 +1,327 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HonePage</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        background-image: url("image/1537741407(1).jpeg");
+        background-size: cover;
+        background-position: center;
+        backdrop-filter: blur(10px); /* 毛玻璃效果 */
+        justify-content: center;
+        align-items: center;
+    }
+    .idcard {
+        background-color: rgba(255,255,255,0.3);
+        border: 2px solid rgba(0,0,0,0.2);
+        position: relative;
+        height: 50vh;
+        width: 35vh;
+        border-radius: 15%;
+        z-index: -1;
+        box-shadow: 10px 10px 30px rgba(255, 255, 255, 0.4); /* 投影效果 */
+    }
+    .idcard-top {
+        background-color: rgba(255,255,255,0.5);
+        border-radius:50%;
+        position: relative;
+        top: 5%;
+        left: 30%;
+        width: 40%;
+        height: 28%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .idcard-top img {
+        border-radius: 50%;
+        width: 95%;
+        height: 95%;
+    }
+    .info {
+        width: 100%;
+        height: 70%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    .info-box {
+        width: 80%;
+        height: 90%;
+        text-align: center;
+        position: relative;
+        top:5%;
+    }
+    .info-name {
+        color: white;
+        font-family: "猫啃珠圆体";
+        font-size: 24px;
+        position: relative;
+        top:10%;
+    }
+    .info-music {
+        width: 100%;
+        height: 35%;
+        background-color: rgba(0,0,0,0.2);
+        position: relative;
+        top:15%;
+        border-radius:15px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    .music-top {
+        width: 90%;
+    }
+    .music-title {
+        color: white;
+        font-size: 16px;
+        font-family: "微软雅黑";
+        font-weight: bolder;
+    }
+    .music-album {
+        color: white;
+        font-size: 12px;
+    }
+    .music-Progress-bar {
+        background-color: rgba(255,255,255,0.2);
+        height: 5px;
+        width: 90%;
+        position: relative;
+        top:3px;
+        left:5%;
+        border-radius: 5px;
+    }
+    .music-Progress-bar .music-progress-line {
+        width: 0%; /* 初始化宽度为0 */
+        height: 100%;
+        background-color:rgba(255,217,243,1.00);
+        border-radius: 5px;
+    }
+    .music-time {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        position: relative;
+        left: 5%;
+        top:3px;
+    }
+    .music-time-font {
+        font-size: 12px;
+        color: pink;
+    }
+    .info-lyric {
+        font-size: 16px;
+        color: white;
+        font-family: "猫啃珠圆体";
+        position: relative;
+        top:20%;
+    }
+    .info-icon {
+        position: relative;
+        top: 25%;
+    }
+    .info i {
+        padding: 0 8px;
+        text-align: center;
+        cursor: pointer; /* 接触时鼠标变为手的样式 */
+        transition: all 0.4s;/* 过渡效果 */
+        color:#EEEEEE;
+        line-height: 30px;
+    }
+    .info i:hover {
+        border-radius: 6px;
+        background-color: rgba(71,70,70,0.2);/* rgba颜色模式 0.2为透明度 */
+        color:#ABABAB;
+    }
+</style>
+<link href="CSS/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+function MM_popupMsg(msg) { //v1.0
+  alert(msg);
+}
+</script>
+</head>
+
+<body>
+    <!-- 整体 -->
+    <div class="idcard">
+        <!-- 头部信息 -->
+        <div class="idcard-top">
+            <!-- 图片 -->
+            <img src="image/nina.jpg" width="506" height="506" alt="头像"/> 
+        </div>
+        <div class="info">
+            <div class="info-box">
+                <!-- 名称 -->
+                <div class="info-name">kanade</div>
+                <!-- 音乐播放器 -->
+                <div class="info-music">
+                    <!-- 音乐播放器上部 -->
+                    <div class="music-top">
+                        <div class="music-title" id="music-title">春日影</div> <!-- 歌曲名 -->
+                        <div class="music-album" id="music-album">MYGO!!!!!-迷跡波</div> <!-- 专辑名 -->
+                        <div class="music-Progress-bar">
+                            <div class="music-progress-line" id="progress"></div>
+                        </div>
+                        <div class="music-time">
+                            <span class="music-time-font" id="current-time">00:00</span>
+                            <span class="music-time-font" id="duration">04:16</span> <!-- 音乐总时长 -->
+                        </div>
+                        <div>
+                            <i class="fa fa-step-backward" id="prev"></i> <!-- 上一首 -->
+                            <i class="fa fa-play" id="play-pause"></i> <!-- 播放/暂停 -->
+                            <i class="fa fa-step-forward" id="next"></i> <!-- 下一首 -->
+                        </div>
+                    </div>
+                </div>
+                <!-- 歌词 -->
+                <div class="info-lyric">人生没有正确答案<br>所以没有什么败北</div>
+                <!-- 个人社交 -->
+                <div class="info-icon">
+                    <i class="fa fa-qq" onMouseDown="MM_popupMsg('测试')"></i>
+                    <i class="fa fa-weixin"  onMouseDown="MM_popupMsg('测试')"></i>
+                    <i class="fa fa-twitter"  onMouseDown="MM_popupMsg('测试')"></i>
+                    <i class="fa fa-steam"  onMouseDown="MM_popupMsg('测试')"></i>
+                    <i class="fa fa-envelope-o"  onMouseDown="MM_popupMsg('测试')"></i>
+                </div>
+            </div>
+        </div>    
+    </div>
+    
+    <!-- 音频元素，隐藏播放控件 -->
+    <audio id="audio" src="http://music.163.com/song/media/outer/url?id=2097486090.mp3"></audio> <!-- 音频元素 -->
+
+    <script>
+        // 音乐列表，包含多个音频文件及其信息
+        const musicList = [
+            {
+                title: '春日影',
+                album: 'MYGO!!!!!-迷跡波',
+                src: "http://music.163.com/song/media/outer/url?id=2097486090.mp3"
+            },
+            {
+                title: '序曲',
+                album: 'Poppin Party - イントロダクション',
+                src: "http://music.163.com/song/media/outer/url?id=1903891319.mp3"
+            },
+            {
+                title: '声なき魚',
+                album: '(新川崎（仮）)',
+                src: "http://music.163.com/song/media/outer/url?id=2147608127.mp3"
+            },
+			{
+                title: 'WHITE ALBUM',
+                album: '平野綾',
+                src: "http://music.163.com/song/media/outer/url?id=32303030.mp3"
+            },
+			{
+                title: '花がら',
+                album: '花がら',
+                src: "http://music.163.com/song/media/outer/url?id=2087669501.mp3"
+            },
+			{
+                title: '空の箱',
+                album: '(新川崎（仮）)',
+                src: "http://music.163.com/song/media/outer/url?id=2142858141.mp3"
+            }
+        ];
+
+        // 当前播放的索引
+        let currentIndex = 0;
+
+        // 获取HTML中的音频元素
+        const audio = document.getElementById('audio');
+        
+        // 获取播放/暂停按钮
+        const playPauseBtn = document.getElementById('play-pause');
+
+        // 获取进度条元素
+        const progressBar = document.getElementById('progress');
+
+        // 获取显示当前时间的元素
+        const currentTimeEl = document.getElementById('current-time');
+
+        // 获取显示总时间的元素
+        const durationEl = document.getElementById('duration');
+
+        // 获取上一首和下一首按钮
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+
+        // 获取歌曲标题和专辑名元素
+        const musicTitleEl = document.getElementById('music-title');
+        const musicAlbumEl = document.getElementById('music-album');
+
+        // 加载当前音乐
+        function loadMusic(index) {
+            const music = musicList[index];
+            audio.src = music.src;
+            musicTitleEl.textContent = music.title;
+            musicAlbumEl.textContent = music.album;
+        }
+
+        // 播放/暂停功能实现
+        playPauseBtn.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.classList.remove('fa-play');
+                playPauseBtn.classList.add('fa-pause');
+            } else {
+                audio.pause();
+                playPauseBtn.classList.remove('fa-pause');
+                playPauseBtn.classList.add('fa-play');
+            }
+        });
+
+        // 更新进度条和当前时间
+        audio.addEventListener('timeupdate', () => {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            progressBar.style.width = progress + '%';
+
+            const currentMinutes = Math.floor(audio.currentTime / 60);
+            const currentSeconds = Math.floor(audio.currentTime % 60).toString().padStart(2, '0');
+            currentTimeEl.textContent = `${currentMinutes}:${currentSeconds}`;
+        });
+
+        // 设置音频总时长
+        audio.addEventListener('loadedmetadata', () => {
+            const durationMinutes = Math.floor(audio.duration / 60);
+            const durationSeconds = Math.floor(audio.duration % 60).toString().padStart(2, '0');
+            durationEl.textContent = `${durationMinutes}:${durationSeconds}`;
+        });
+
+        // 播放上一首
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + musicList.length) % musicList.length;
+            loadMusic(currentIndex);
+            audio.play();
+            playPauseBtn.classList.remove('fa-play');
+            playPauseBtn.classList.add('fa-pause');
+        });
+
+        // 播放下一首
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % musicList.length;
+            loadMusic(currentIndex);
+            audio.play();
+            playPauseBtn.classList.remove('fa-play');
+            playPauseBtn.classList.add('fa-pause');
+        });
+
+        // 音频播放结束后自动播放下一首
+        audio.addEventListener('ended', () => {
+            currentIndex = (currentIndex + 1) % musicList.length;
+            loadMusic(currentIndex);
+            audio.play();
+        });
+
+        // 初始化加载第一首音乐
+        loadMusic(currentIndex);
+    </script>
+</body>
+</html>
